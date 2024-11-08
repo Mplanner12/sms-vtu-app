@@ -19,7 +19,7 @@ export default function AuthForm() {
         setMessage("Invalid credentials.");
       }
     } catch {
-      setMessage("Login failed.");
+      setMessage("failed.");
     }
   };
 
@@ -48,7 +48,15 @@ export default function AuthForm() {
         >
           Login
         </button>
-        {message && <p className="mt-4 text-sm text-red-500">{message}</p>}
+        {message && (
+          <p
+            className={`mt-4 text-sm ${
+              message.includes("successful") ? "text-green-600" : "text-red-500"
+            }`}
+          >
+            {message}
+          </p>
+        )}
       </div>
     </div>
   );
