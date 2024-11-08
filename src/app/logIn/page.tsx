@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function AuthForm() {
   const [username, setUsername] = useState("");
@@ -23,29 +24,32 @@ export default function AuthForm() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h2 className="text-xl font-bold">Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        className="mb-2 p-2 border border-gray-300 rounded"
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="mb-2 p-2 border border-gray-300 rounded"
-      />
-      <button
-        onClick={handleLogin}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Login
-      </button>
-      {message && <p className="mt-4">{message}</p>}
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-blue-400 to-purple-500">
+      <div className="bg-white p-8 rounded-lg shadow-lg text-center w-96">
+        <FaUserCircle className="text-6xl text-blue-600 mx-auto mb-4" />
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Login</h2>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="mb-4 p-2 w-full border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          onClick={handleLogin}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Login
+        </button>
+        {message && <p className="mt-4 text-sm text-red-500">{message}</p>}
+      </div>
     </div>
   );
 }
