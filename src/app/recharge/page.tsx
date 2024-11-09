@@ -7,7 +7,6 @@ import { FaSms } from "react-icons/fa";
 export default function RechargePage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [amount, setAmount] = useState("");
-  const [serviceType, setServiceType] = useState("SMS"); // Could be dynamic later
   const [message, setMessage] = useState("");
 
   const handleRecharge = async () => {
@@ -15,7 +14,6 @@ export default function RechargePage() {
       const response = await axios.post("/api/recharge", {
         phoneNumber,
         amount,
-        // serviceType: "SMS",
       });
       setMessage(response.data.message);
     } catch (error) {
