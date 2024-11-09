@@ -15,10 +15,11 @@ export default function RechargePage() {
       const response = await axios.post("/api/recharge", {
         phoneNumber,
         amount,
-        serviceType,
+        // serviceType: "SMS",
       });
       setMessage(response.data.message);
     } catch (error) {
+      console.error(error);
       setMessage("Recharge failed.");
     }
   };
